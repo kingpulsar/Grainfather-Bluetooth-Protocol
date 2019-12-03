@@ -6,7 +6,7 @@ This project started because I was not satisfied with the official Grainfather C
 
 # Tools used
 [Wireshark](https://www.wireshark.org/) to analyze the bluetooth traffic between the GFConnect application and the box.  
-[Frida](https://frida.re/) for dynamic testing.  
+[Frida](https://frida.re/) for dynamic testing. [Screenshot :)](https://imgur.com/lsc9tJV) 
 [gatttool](http://manpages.ubuntu.com/manpages/cosmic/man1/gatttool.1.html) to find the bluetooth UUIDs.  
 [apktool](https://ibotpeaches.github.io/Apktool/) to convert the APK to a JAR file.  
 [jadx](https://github.com/skylot/jadx) to decompile the JAR file.  
