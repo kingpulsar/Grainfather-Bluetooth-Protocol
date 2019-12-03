@@ -1,4 +1,4 @@
-# GrainfatherBluetoothCommands
+# Grainfather Bluetooth Protocol
 Documents the Bluetooth communication to and from the Grainfather brewing system.
 
 # Background
