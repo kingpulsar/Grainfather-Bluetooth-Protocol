@@ -100,3 +100,8 @@ Notifications look like this:
 `I{Interaction Code}`  
 `W{Heat Power Output Percentage},{Is Timer Paused},{Step Mash Mode},{Is Recipe Interrupted},{Manual Power Mode},{Sparge Water Alert Displayed}`  
 `C{Boil Temperature}`  
+
+Examples:  
+`T0,0,0,0,ZZZZZZZZ`  
+`X61.0,22.8,ZZZZZZ` 61.0C target temperature, 22.8C current temperature  
+`W0,0,0,0,0,0,ZZZZ`  
