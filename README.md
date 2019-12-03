@@ -5,12 +5,12 @@ Documents the Bluetooth communication to and from the Grainfather brewing system
 This project started because I was not satisfied with the official Grainfather Connect phone application. It often loses connection and if a person wants to use the bluetooth capabilities of the system, grainfather requires them to create an account for their cloud service. They also force them to upload the recipes to their cloud which sometimes alters the recipe. Because of this, it's a rather annoying proces to get your recipe from a recipe builder like Brewfather or Beersmith to your brewing system. By looking into the protocol I wanted to give the community more control over their grainfather systems by allowing anyone to create their own software to control the grainfather system.
 
 # Tools used
-I used [Wireshark](https://www.wireshark.org/) to analyze the bluetooth traffic between the GFConnect application and the box.  
-I used [Frida](https://frida.re/) for dynamic testing.  
-I used [gatttool](http://manpages.ubuntu.com/manpages/cosmic/man1/gatttool.1.html) to find the bluetooth UUIDs.  
-I used [apktool](https://ibotpeaches.github.io/Apktool/) to convert the APK to a JAR file.  
-I used [jadx](https://github.com/skylot/jadx) to decompile the JAR file.  
-I used [7-zip](https://www.7-zip.org/) to extract the APK assets.  
+[Wireshark](https://www.wireshark.org/) to analyze the bluetooth traffic between the GFConnect application and the box.  
+[Frida](https://frida.re/) for dynamic testing.  
+[gatttool](http://manpages.ubuntu.com/manpages/cosmic/man1/gatttool.1.html) to find the bluetooth UUIDs.  
+[apktool](https://ibotpeaches.github.io/Apktool/) to convert the APK to a JAR file.  
+[jadx](https://github.com/skylot/jadx) to decompile the JAR file.  
+[7-zip](https://www.7-zip.org/) to extract the APK assets.  
 
 # Bluetooth Low Energy
 The system uses Bluetooth Low Energy for it's communiation.  
@@ -22,7 +22,7 @@ Write Characteristic UUID `0003cdd2-0000-1000-8000-00805f9b0131`
 
 # Commands
 The commands are sent to the grainfather system via Bluetooth. Commands are plain text.  
-All commands should be exactly 19 characters in length. Pad the end with spaces.  
+All commands should be exactly **19 characters** in length. Pad the end with spaces.  
 Anything between curly braces is a parameter.  
 
 Dismiss Boil Addition Alert: `A`  
@@ -67,27 +67,27 @@ Edit Controller Stored Temp And Time: `a{Stage Num},{New Time},{New Temperature}
 Set Sparge Progress To: `b${Progress},`  
 Skip To Interaction: `c{Code},`  
 
-## Sending a recipe
+# Sending a recipe
 Sending a recipe is a bit more complex. Commands need to be sent in the correct order:  
 `R{Boil Time},{Mash Step Count},{Mash Volume},{Sparge Volume},`  
 `{Show Water Treatment Alert},{Show Sparge Counter},{Show Sparge Alert},{Delayed Session},{Skip Start},`  
 `{Recipe Name}`  
 `{Hop Stand Time},{Boil Addition Stop Count},{Boil Power Mode},{Strike Temp Mode},`  
-Then send every 'stop' or 'addition time' (in minutes)  
+Then for every 'boil stop' or 'unique boil addition time', send the time remaining in minutes.  
 Then if you're using strike temp mode, send: `0`. (Not sure why, maybe it's not yet implemented)  
-Then for every 'stop' or 'step' in your mash, send: `{Mash Step Temperature}:{Mash Step Duration}` (Temperature in degC and Duration in Min)  
+Then for every 'mash stop' or 'step' in your mash, send: `{Mash Step Temperature}:{Mash Step Duration}` (Temperature in degC and Duration in Min)  
 
 Example:  
-`R75,2,15.7,16.7,   ` 75 minute boil, 2 mash steps, 15.6L mash volume, 16.7L sparge volume  
-`0,1,1,0,0,         ` No water treatment alert, show sparge counter, show sparge alert, no delayed session, do not skip the start  
-`SAISON             ` Recipe name that will be displayed in the top left  
-`0,4,0,0,           ` No hop stand, 4 boil addition stops, no boil power mode, no strike temp mode  
-`75,                ` Boil addition stop 1, at 75 minutes remaining  
-`45,                ` Boil addition stop 2, at 45 minutes remaining  
-`30,                ` Boil addition stop 3, at 30 minutes remaining  
-`10,                ` Boil addition stop 4, at 10 Minutes remaining  
-`65:60,             ` Mash step 1, 65C for 60 minutes  
-`75:10,             ` Mash step 2, 75C for 10 minutes  
+`R75,2,15.7,16.7,` 75 minute boil, 2 mash steps, 15.6L mash volume, 16.7L sparge volume  
+`0,1,1,0,0,` No water treatment alert, show sparge counter, show sparge alert, no delayed session, do not skip the start  
+`SAISON` Recipe name that will be displayed in the top left  
+`0,4,0,0,` No hop stand, 4 boil addition stops, no boil power mode, no strike temp mode  
+`75,` Boil addition stop 1, at 75 minutes boil time remaining  
+`45,` Boil addition stop 2, at 45 minutes boil time remaining  
+`30,` Boil addition stop 3, at 30 minutes boil time remaining  
+`10,` Boil addition stop 4, at 10 Minutes boil time remaining  
+`65:60,` Mash step 1, 65C for 60 minutes  
+`75:10,` Mash step 2, 75C for 10 minutes  
 
 # Notifications
 The system sends it's current status every so often.  
