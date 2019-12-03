@@ -1,8 +1,10 @@
 # Grainfather Bluetooth Protocol
 Documents the Bluetooth communication to and from the Grainfather brewing system.
 
+![Grainfather](https://i.imgur.com/3ZoLckX.jpg)
+
 # Background
-This project started because I was not satisfied with the official Grainfather Connect phone application. It often loses connection and if a person wants to use the bluetooth capabilities of the system, grainfather requires them to create an account for their cloud service. They also force them to upload the recipes to their cloud which sometimes alters the recipe. Because of this, it's a rather annoying proces to get your recipe from a recipe builder like Brewfather or Beersmith to your brewing system. By looking into the protocol I wanted to give the community more control over their grainfather systems by allowing anyone to create their own software to control the grainfather system.
+This project started because I was not satisfied with the official Grainfather Connect phone application. It often loses connection and if a person wants to use the bluetooth capabilities of the system, grainfather requires them to create an account for their cloud service. They also force users to upload their recipes to the grainfather cloud which sometimes alters the recipe in the process. Because of this, it's rather annoying to get your recipe from for example Brewfather or Beersmith loaded onto your brewing system. I want to give the community more control over their grainfather systems by allowing anyone to create their own software to control the grainfather system.
 
 # Tools used
 [Wireshark](https://www.wireshark.org/) to analyze the bluetooth traffic between the GFConnect application and the box.  
