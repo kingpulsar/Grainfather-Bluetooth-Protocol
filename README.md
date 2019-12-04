@@ -109,8 +109,8 @@ Examples:
 `W0,0,0,0,0,0,ZZZZ`  
 
 # Example code
-The provided example is written in javascript for nodejs.  
-I tested the example on a raspberry pi 3.  
+The provided example is written in javascript for nodejs. It uses the [Noble](https://github.com/noble/noble) bluetooth library. For instructions on how to get noble running, refer to their page.  
+Tested on a raspberry pi 3 running nodejs version 8.  
 
 Here's a video of the example in action:
 [![Watch the demo](https://img.youtube.com/vi/LsPVeMsqxlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=LsPVeMsqxlc)
