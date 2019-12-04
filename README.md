@@ -107,3 +107,10 @@ Examples:
 `T0,0,0,0,ZZZZZZZZ`  
 `X61.0,22.8,ZZZZZZ` 61.0C target temperature, 22.8C current temperature  
 `W0,0,0,0,0,0,ZZZZ`  
+
+# Example code
+The provided example is written in javascript for nodejs.  
+I tested the example on a raspberry pi 3.  
+
+Here's a video of the example in action:
+[![Watch the demo](https://img.youtube.com/vi/LsPVeMsqxlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=LsPVeMsqxlc)
