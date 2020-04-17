@@ -100,7 +100,7 @@ Notifications look like this:
 `Y{Heat Power},{Pump Status},{Auto Mode Status},{Stage Ramp Status},{Interaction Mode Status},{Interaction Code},{Stage Number},{Delayed Heat Mode}`  
 `T{Timer Active},{Time Left Minutes},{Timer Total Start Time},{Time Left Seconds}`  
 `I{Interaction Code}`  
-`V{Voltage: 0=230V, 1=110V},{Units: 0=°F, 1=°C}`
+`V{Voltage: 0=230V, 1=110V},{Units: 0=°F, 1=°C}`  
 `W{Heat Power Output Percentage},{Is Timer Paused},{Step Mash Mode},{Is Recipe Interrupted},{Manual Power Mode},{Sparge Water Alert Displayed}`  
 `C{Boil Temperature}`  
 `F{Firmware version}`
