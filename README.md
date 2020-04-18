@@ -78,6 +78,7 @@ Sending a recipe is a bit more complex. Commands need to be sent in the correct 
 Then for every 'boil stop' or 'unique boil addition time', send the time remaining in minutes.  
 Then if you're using strike temp mode, send: `0`. (Not sure why, maybe it's not yet implemented)  
 Then for every 'mash stop' or 'step' in your mash, send: `{Mash Step Temperature}:{Mash Step Duration}` (Temperature in degC and Duration in Min)  
+If delayed session is enabled, send: `{Delay Minutes}, {Delay Seconds}`  
 
 Example:  
 `R75,2,15.7,16.7,` 75 minute boil, 2 mash steps, 15.6L mash volume, 16.7L sparge volume  
