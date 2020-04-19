@@ -78,6 +78,7 @@ Sending a recipe is a bit more complex. Commands need to be sent in the correct 
 Then for every 'boil stop' or 'unique boil addition time', send the time remaining in minutes.  
 Then if you're using strike temp mode, send: `0`. (Not sure why, maybe it's not yet implemented)  
 Then for every 'mash stop' or 'step' in your mash, send: `{Mash Step Temperature}:{Mash Step Duration}` (Temperature in degC and Duration in Min)  
+If delayed session is enabled, send: `{Delay Minutes}, {Delay Seconds}`  
 
 Example:  
 `R75,2,15.7,16.7,` 75 minute boil, 2 mash steps, 15.6L mash volume, 16.7L sparge volume  
@@ -93,15 +94,17 @@ Example:
 
 # Notifications
 The system sends it's current status every so often.  
-All notifications start with one of these characters: A, B, C, E, I, T, W, X, Y.  
+All notifications start with one of these characters: A, B, C, E, F, I, T, V, W, X, Y.  
 Notifications look like this:  
 
 `X{Target Temperature},{Current temperature}`  
 `Y{Heat Power},{Pump Status},{Auto Mode Status},{Stage Ramp Status},{Interaction Mode Status},{Interaction Code},{Stage Number},{Delayed Heat Mode}`  
 `T{Timer Active},{Time Left Minutes},{Timer Total Start Time},{Time Left Seconds}`  
 `I{Interaction Code}`  
+`V{Voltage: 0=230V, 1=110V},{Units: 0=°F, 1=°C}`  
 `W{Heat Power Output Percentage},{Is Timer Paused},{Step Mash Mode},{Is Recipe Interrupted},{Manual Power Mode},{Sparge Water Alert Displayed}`  
 `C{Boil Temperature}`  
+`F{Firmware version}`
 
 Examples:  
 `T0,0,0,0,ZZZZZZZZ`  
